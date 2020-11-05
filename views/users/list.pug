@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    .row
+        .col-md-8
+            h1 list of Users
+        .col-md-4
+            a(href="products/add" class="btn btn-success float-right") Add New Product
+    
+    table.table
+        thead
+            th Name
+            th Email
+            th Actions
+        tbody
+            each user in users
+                tr
+                    td=user.name
+                    td=user.email
+                    td  
+                        a(href="/products/delete/", class="btn btn-danger") Delete
+                        a(href="/products/edit/", class="btn btn-warning") Edit
+                        a(href="/products/cart/add/", class="btn btn-info") Add to Cart   
