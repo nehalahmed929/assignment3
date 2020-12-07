@@ -5,10 +5,11 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose"); // my added line
 var indexRouter = require("./routes/index");
-var productsRouter = require("./routes/products"); // my added line
+var postsRouter = require("./routes/posts"); // my added line
 var usersRouter = require("./routes/users");
 var session = require("express-session"); // my added line
 var sessionAuth = require("./middlewares/sessionAuth"); // my added line
+var config = require("config");
 
 var app = express();
 app.use(
@@ -30,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/products", productsRouter); // my added line
+app.use("/posts", postsRouter); // my added line
 app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
@@ -50,7 +51,7 @@ app.use(function (err, req, res, next) {
 });
 
 mongoose
-  .connect("mongodb://localhost/productsCrud", {
+  .connect(config.get("db"), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+
+    h1 Add new post
+       
+    <form action="/posts/add" method="post" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label for="exampleInputPassword1">Image</label>
+            <input type="file" class="form-control" name="image" id="exampleInputPassword1">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Caption</label>
+            <input type="text" class="form-control" name="caption" id="exampleInputPassword1">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    

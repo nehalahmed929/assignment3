@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    .row
+        .col-md-8
+            h1 list of posts
+        .col-md-4
+            a(href="posts/add" class="btn btn-success float-right") Add New Post
+    
+    table.table
+        thead
+            th User
+            th Image
+            th Caption
+            th actions
+        tbody
+            each post in posts
+                tr
+                    td=post.user.name
+                    td 
+                        img(src=post.imageUrl, alt="" class="post-im" width="200px")
+                    td=post.caption
+                    td
+                        if(userLogged)  
+                            a(href="/posts/delete/"+post._id, class="btn btn-danger mr-2") Delete
+                            a(href="/posts/edit/"+post._id, class="btn btn-warning") Edit

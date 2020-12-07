@@ -1,8 +1,16 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+
+.post-img {
+  width: "200px !important";
+}
+
+nav {
+  margin-bottom: 50px;
 }
